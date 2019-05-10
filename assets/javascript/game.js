@@ -12,7 +12,12 @@ var guessLeft = 0;
 var wins = 0;
 
 //put the wordGuess in a box with underscore for letters
-console.log(Array.from(wordGuess));
+
+var wordArr = Array.from(wordGuess);
+for (i = 0; i < wordArr.length; i++)
+   document.write(wordArr[i] + "_");
+
+console.log(wordArr);
 
 
 
