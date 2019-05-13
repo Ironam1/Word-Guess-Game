@@ -21,6 +21,7 @@ function setGame () {
     console.log("wordguess1 " + wordGuess);
     document.getElementById("comp-word").innerHTML = wordGuess;
     changeDisplay();
+    makeGuess();
 };
 
 function changeDisplay () {
@@ -30,7 +31,7 @@ function changeDisplay () {
             document.getElementById("comp-word").innerText + wordGuess[i];
         }
         document.getElementById("guesses-left").innerText = "Guesses Left:" + guessLeft;
-        document.getElementById("user-guess").innerText = letterGuess;
+        // document.getElementById("user-guess").innerText = letterGuess;
         if(guessLeft <= 0) {
             isPlaying = true;
         }
@@ -67,7 +68,7 @@ function changeDisplay () {
 //     }
 // };
 
-// function makeGuess (letter) {
+function makeGuess (letter) {
     document.onkeyup = function (event) {
         var keypressed = event.key;
         console.log(keypressed);
@@ -84,7 +85,7 @@ function changeDisplay () {
                 evaluateWord(letter);
             
     }
-// }
+}
     changeDisplay();
     checkWin();
 };
