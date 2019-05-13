@@ -23,7 +23,7 @@ var wins = 0;
       isPlaying = true;
       letterGuess = [];
       wordGuess = [];
-      guessLeft = 0;
+      guessLeft = 10;
  }
 
 
@@ -40,8 +40,7 @@ var wins = 0;
             wordGuess.push(selectWord);
                console.log("wordGuess " + wordGuess);
             document.getElementById("comp-word").innerHTML = wordGuess;
-            var guessLeft = (wordGuess.length + 5);
-               console.log(guessLeft);
+            
                
          // console.log(guessTotal);
          // console.log(wordGuess);
