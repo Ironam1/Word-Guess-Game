@@ -7,7 +7,6 @@ var selectWord;
 var wordGuess = [];
 var guessLeft = 10;
 var wins = 0;
-var blanks = [];
 
 function setGame () {
     letterGuess = [];
@@ -15,8 +14,7 @@ function setGame () {
     selectWord = wordList[Math.floor(Math.random() * wordList.length)];
     console.log("select word: " + selectWord);
     wordGuess = [];
-    blanks.length = 0;
-    var arr = Array.from(selectWord);
+    // var arr = Array.from(selectWord);
     console.log("word arr: " + selectWord.split(""));
     
     for (i = 0; i < (selectWord).length; i++) {
@@ -74,20 +72,21 @@ function changeDisplay () {
 // };
 document.onkeyup = function (event) {
     var keypressed = event.key;
-    console.log("keypress " + keypressed);
-    for (j = 0; j < wordGuess.length; j++);
-    if (keypressed === wordGuess[j]) {
-        blanks[j] = wordGuess[j];
-    } else {
-        letterGuess.push(keypressed);
-    }
+    console.log("keypress " + keypressed);    
+    evaluateWord(keypressed);
+}
+    // for (j = 0; j < wordGuess.length; j++);
+    // if (keypressed === wordGuess[j]) {
+    //     blanks[j] = wordGuess[j];
+    // } else {
+    //     letterGuess.push(keypressed);
+    // }
 
     
     // letterGuess.push(keypressed);
-    console.log("letterGuess " + letterGuess);
-    document.getElementById("user-guess").innerHTML = letterGuess.join(" ");
-    // makeGuess(keypressed);
-}
+    // console.log("letterGuess " + letterGuess);
+    // document.getElementById("user-guess").innerHTML = letterGuess.join(" ");
+   
 
 
 // function makeGuess (letter) {
@@ -109,23 +108,32 @@ document.onkeyup = function (event) {
 //     // changeDisplay();
 //     checkWin();
 // };
-
-// function evaluateWord(letter) {
-//     var positions = [];
-//     for (i = 0; i < wordGuess.length; i++) {
-//         if(wordGuess[i] === letter) {
-//             positions.push(i);
-//             console.log("wordguess2 " + wordGuess);
-//         }
-//     }
-//     if(positions.length <= 0) {
-//         guessLeft--;
-//     } else {
-//         for (i = 0; i < positions.length; i++) {
-//             wordGuess[positions[i]] = letter;
-//         }
-//     }
-// };
+// !!!! for the selectWord variable, 
+function evaluateWord(letter) {
+    correct = false;
+    var letter = [];
+    if (guessLeft = 0) {
+        isPlaying = false;
+    }
+    
+    for (i = 0; i < (selectWord).length; i++) {
+        if (letter[i] === selectWord[i]) {
+        correct = true;
+        selectWord[i] === wordGuess[i];
+        
+    } else {
+        correct = false;
+        guessLeft--;
+    }
+}
+    console.log(guessLeft + " new");
+    console.log(correct);
+    console.log(wordGuess + " cl");       
+            
+        
+    
+    console.log("wordguess2 " + wordGuess);
+};
 
 // function checkWin () {
 //     if(wordGuess.indexOf("_") === -1) {
