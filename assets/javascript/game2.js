@@ -51,8 +51,17 @@ function checkWin () {
          for(i = 0; i < selectWord.length; i++) {
              if (letter === selectWord[i]) {
                  correct = true;
+             } else {
+                letterGuess.push(letter);
+                 document.getElementById("user-guess").innerHTML = letterGuess.join(" ");
+                 guessLeft--;
+                 console.log("left " + guessLeft);
+                 if (guessLeft === 0) {
+                     alert("SORRY THE FORCE IS NOT WITH YOU!");
+                    setGame();
              }
-             if (correct == true) {
+            }
+             if (correct) {
                 wordGuess[i] = letter;
                 document.getElementById("comp-word").innerHTML = wordGuess.join(" ");
                 }
@@ -60,21 +69,9 @@ function checkWin () {
                 console.log("LAST " + wordGuess);
              } 
             }
-             {
-                if (letterGuess[i].indexOf(letter) = -1) {
-                 letterGuess.push(letter);
-                 document.getElementById("user-guess").innerHTML = letterGuess.join(" ");
-                 guessLeft--;
-                 console.log("left " + guessLeft);
-                 if (guessLeft === 0) {
-                     alert("SORRY THE FORCE IS NOT WITH YOU!");
-                    setGame();
-                 }
-                
-             
-             }
-         }
-     }
+        }
+         
+     
 
 // function isAlpha (ch) {
 //     return /^[A-Z]$/i.test(ch);
