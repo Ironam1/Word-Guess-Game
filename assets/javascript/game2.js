@@ -21,55 +21,92 @@ function setGame () {
     isPlaying = true;
     console.log("wordguess1 " + wordGuess);
     changeDisplay();
-    evaluateWord();
 };
 
 function changeDisplay () {
         document.getElementById("wins").innerText = "Total Wins:" + wins;
         document.getElementById("guesses-left").innerText = "Guesses Left:" + guessLeft;
-        document.getElementById("comp-word").innerHTML = wordGuess.join("_ ");
-        
+        // document.getElementById("comp-word").innerHTML = wordGuess.join("_ ");
+        // document.getElementById("user-guess").innerHTML = letterGuess;ry
 };
 
 function checkWin () {
     if(wordGuess.indexOf("_") === -1) {
         wins++;
-        startGame();
+        setGame();
+        changeDisplay();
     }
+    console.log("WINS " + wins);
 };
 
 
+   
 
-
-
-function evaluateWord(letter) {
-    document.onkeyup = function (event) {
-        if (isPlaying) {
-        var keypressed = event.key;
-        console.log("keypress " + keypressed);    
-        evaluateWord(keypressed);
-        }
-    }
-
-    correct = false;
-    console.log("last " + letter);
     
-    if (guessLeft = 0) {
-        isPlaying = false;
-    }
+     function evaluateGuess() {
+         document.onkeydown = function (event) {
+             letter = event.key.toLowerCase();
+          
+         var correct = false;
+         for(i = 0; i < selectWord.length; i++) {
+             if (letter === selectWord[i]) {
+                 correct = true;
+             }
+             if (correct == true) {
+                wordGuess[i] = letter;
+                document.getElementById("comp-word").innerHTML = wordGuess.join(" ");
+                }
+                console.log("correct " + correct);
+                console.log("LAST " + wordGuess);
+             } 
+            }
+             {
+                if (letterGuess[i].indexOf(letter) = -1) {
+                 letterGuess.push(letter);
+                 document.getElementById("user-guess").innerHTML = letterGuess.join(" ");
+                 guessLeft--;
+                 console.log("left " + guessLeft);
+                 if (guessLeft === 0) {
+                     alert("SORRY THE FORCE IS NOT WITH YOU!");
+                    setGame();
+                 }
+                
+             
+             }
+         }
+     }
+
+// function isAlpha (ch) {
+//     return /^[A-Z]$/i.test(ch);
+// }
+// document.onkeyup = function (event) {
+//     if (isPlaying) {
+//     var keypressed = event.key;
+//     console.log("keypress " + keypressed);    
+//     evaluateWord(keypressed);
+//     }
+// }
+// function evaluateWord(letter) {
+
+//     correct = false;
+//     console.log("last " + letter);
     
-    for (i = 0; i < selectWord.length; i++) {
-        if (selectWord[i] === letter) {
-        correct = true;
-        wordGuess[i] = selectWord[i];
-        // document.getElementById("comp-word").innerHTML = wordGuess.push(letter);
+//     if (guessLeft = 0) {
+//         isPlaying = false;
+//     }
+    
+//     for (i = 0; i < selectWord.length; i++) {
+//         if (selectWord[i] === letter) {
+//         correct = true;
+//         wordGuess[i] = selectWord[i];
+//         // document.getElementById("comp-word").innerHTML = wordGuess.push(letter);
         
-    } else {
-        correct = false;
-        guessLeft--;
-        letterGuess.push(letter);
-    }
-    console.log("USED LETTERS " + letterGuess);
+//     } else {
+//         correct = false;
+//         guessLeft--;
+//         letterGuess.push(letter);
+//     }
+//     console.log("USED LETTERS " + letterGuess);
     // if (correct) {
     //     for (i = 0; i < wordGuess.length; i++) { 
     //         if (selectWord[i] === letter) {
@@ -85,15 +122,15 @@ function evaluateWord(letter) {
     //     }
     //     console.log("USED LETTERS " + letterGuess);
     // }
-    console.log("last " + wordGuess);
-} 
+//     console.log("last " + wordGuess);
+// } 
 
-    console.log(guessLeft + " new");
-    console.log("word " + correct);
-    console.log(wordGuess + " cl");       
+//     console.log(guessLeft + " new");
+//     console.log("word " + correct);
+//     console.log(wordGuess + " cl");       
             
         
     
-    console.log("wordguess2 " + wordGuess);
-};
+//     console.log("wordguess2 " + wordGuess);
+// };
 
