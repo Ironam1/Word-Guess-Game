@@ -16,6 +16,7 @@ body {
     border: 5px solid red;
     margin: 20px;
     padding-top: 15px;
+    font-size: 75px;
 }
 
 #wins, #guesses-left {
